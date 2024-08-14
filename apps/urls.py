@@ -1,13 +1,12 @@
 from django.contrib import admin
 from django.urls import path
 
-from apps.views import UserCreateApiView, UserListApiView, UserDetailApiView, ProductDetailApiView, \
+from apps.views import UserCreateListApiView, UserDetailApiView, ProductDetailApiView, \
     ProductCreateListApiView
 
 urlpatterns = [
     # user
-    path('users', UserListApiView.as_view(), name='users'),
-    path('users1', UserCreateApiView.as_view(), name='user-create'),
+    path('users', UserCreateListApiView.as_view(), name='users'),
     path('users/<int:pk>', UserDetailApiView.as_view(), name='user-detail'),
 
     # products

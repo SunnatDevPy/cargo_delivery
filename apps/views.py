@@ -11,18 +11,15 @@ from apps.serializers import UserModelSerializer, ProductModelSerializer
 # Create your views here.
 class UserCreateApiView(CreateAPIView):
     queryset = User.objects.all()
+    serializer_class = UserModelSerializer
 
-    def get_serializer(self, *args, **kwargs):
-        kwargs.setdefault('context', self.get_serializer_context())
-        return UserModelSerializer(*args, **kwargs)
+    # def get_serializer(self, *args, **kwargs):
+    #     kwargs.setdefault('context', self.get_serializer_context())
+    #     return UserModelSerializer(*args, **kwargs)
 
 
-class UserListApiView(ListAPIView):
+class UserCreateListApiView(ListCreateAPIView):
     queryset = User.objects.all()
-
-    def get_serializer(self, *args, **kwargs):
-        kwargs.setdefault('context', self.get_serializer_context())
-        return UserModelSerializer(*args, **kwargs, fields=('id', 'username'))
 
 
 class UserDetailApiView(RetrieveUpdateAPIView):

@@ -25,7 +25,7 @@ class DynamicFieldsModelSerializer(ModelSerializer):
                 self.fields.pop(field_name)
 
 
-class UserModelSerializer(DynamicFieldsModelSerializer):
+class UserModelSerializer(ModelSerializer):
     class Meta:
         model = User
         fields = '__all__'
