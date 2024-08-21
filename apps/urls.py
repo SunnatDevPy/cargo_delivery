@@ -3,8 +3,7 @@ from django.urls import path
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenVerifyView
 
 from apps.views import UserCreateListApiView, UserDetailApiView, ProductDetailApiView, \
-    ProductCreateListApiView, LoginView, RegisterView
-
+    ProductCreateListApiView, LoginView
 urlpatterns = [
     # user
     path('users', UserCreateListApiView.as_view(), name='users'),
