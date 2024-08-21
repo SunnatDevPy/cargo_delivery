@@ -26,8 +26,8 @@ class DynamicFieldsModelSerializer(ModelSerializer):
 
 class UserModelSerializer(ModelSerializer):
     class Meta:
-        model = User
-        fields = '__all__'
+        model = User 
+        exclude = 'groups', 'user_permissions'
 
 
 class ProductModelSerializer(DynamicFieldsModelSerializer):
