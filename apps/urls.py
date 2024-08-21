@@ -1,8 +1,9 @@
 from django.contrib import admin
 from django.urls import path
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenVerifyView
 
 from apps.views import UserCreateListApiView, UserDetailApiView, ProductDetailApiView, \
-    ProductCreateListApiView
+    ProductCreateListApiView, LoginView, RegisterView
 
 urlpatterns = [
     # user
@@ -12,4 +13,9 @@ urlpatterns = [
     # products
     path('products/<int:pk>', ProductDetailApiView.as_view(), name='product-detail'),
     path('products', ProductCreateListApiView.as_view(), name='product-create'),
+
+    path('token', LoginView.as_view(), name='token_obtain_pair'),
+    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('register', RegisterView.as_view(), name='register')
+
 ]
