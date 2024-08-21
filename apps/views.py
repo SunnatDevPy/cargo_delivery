@@ -8,16 +8,13 @@ from apps.models import User, Product
 from apps.serializers import UserModelSerializer, ProductModelSerializer
 
 
-@extend_schema(tags=['User'])
-class UserCreateApiView(CreateAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserModelSerializer
+
 
 
 @extend_schema(tags=['User'])
 class UserCreateListApiView(ListCreateAPIView):
     queryset = User.objects.all()
-
+    serializer_class = UserModelSerializer
 
 @extend_schema(tags=['User'])
 class UserDetailApiView(RetrieveUpdateAPIView):
@@ -58,8 +55,3 @@ class ProductDetailApiView(RetrieveUpdateAPIView):
 class LoginView(TokenObtainPairView):
     pass
 
-
-@extend_schema(tags=['Auth'])
-class RegisterView(CreateAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserModelSerializer
